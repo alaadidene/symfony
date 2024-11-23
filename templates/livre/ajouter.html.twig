@@ -1,0 +1,54 @@
+{% extends 'base.html.twig'%}
+{% block body %}
+ <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4; 
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #5e4b8a; 
+            margin: auto; 
+
+        }
+        form {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px; 
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+            max-width: 400px;
+            margin: auto; 
+        }
+        input[type="text"],
+        input[type="date"] {
+            width: 100%; 
+            padding: 10px;
+            margin: 10px 0; 
+            border: 1px solid #d1c4e9;
+            border-radius: 5px; 
+            box-sizing: border-box; 
+        }
+        button {
+            background-color: #5e4b8a; 
+            color: white; 
+            border: none; 
+            padding: 10px 15px; 
+            border-radius: 5px;
+            cursor: pointer; 
+            width: 100%;
+            margin-top: 10px; 
+        }
+        button:hover {
+            background-color: #7b6b9a; 
+        }
+    </style>
+<h1>Ajouter un livre</h1>
+<form method="post">
+    <input type="text" name="titre" placeholder=" titre" required>
+    <input type="text" name="auteur" placeholder=" auteur" required>
+    <input type="date" name="DatePublication" required>
+    <input type="text" name="description" placeholder=" la description" required>
+    <button type="submit">ajouter</button>
+</form>
+{% endblock %}

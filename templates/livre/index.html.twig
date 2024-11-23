@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #5e4b8a; 
+        }
+        a {
+            color: #5e4b8a; 
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: #fff; 
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #d1c4e9;
+        }
+        th {
+            background-color: #9c7cbb; 
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f3e5f5; 
+        }
+        tr:hover {
+            background-color: #e1bee7; 
+        }
+    </style>
+<h1>liste des livres</h1>
+<a href="{{path('app_livre_ajouter')}}">Ajouter un livre</a>
+<table border="1">
+    <tr>
+        <th>id</th>
+        <th>Titre</th>
+        <th>Auteur</th>
+        <th>Date de publication</th>
+        <th>Supprimer</th>
+    </tr>
+    {% for livre in livres %}
+    <tr>
+        <td>{{livre.id}}</td>
+       <td> <a href="{{ path('description_de_livre', {id: livre.id}) }}">{{livre.titre}}</a></td>
+       <td> {{livre.auteur}}</td>
+       <td>({{livre.DatePublication|date('Y-m-d')}})</td>
+       <td> <a href="{{ path('supprimer_un_livre', {id: livre.id}) }}">supprimer</a>
+    </td>
+    </tr>
+    {% else %}
+    <li>Aucun livre trouvé.</li>
+    {% endfor %}
+    
+</table>
+{% endblock %}
